@@ -1,1079 +1,129 @@
 <!DOCTYPE html>
-<!-- saved from url=(0042)file:///C:/Users/Brux/Downloads/index.html -->
-<html lang="uz" class="dark"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aslbek AI - Claude Style Multimodal Assistant</title>
-  <!-- Tailwind CSS CDN -->
-  <script src="./Aslbek AI - Claude Style Multimodal Assistant_files/saved_resource"></script>
-  <!-- FontAwesome for Icons -->
-  <link rel="stylesheet" href="./Aslbek AI - Claude Style Multimodal Assistant_files/all.min.css">
-  <!-- Google Fonts (Inter & Merriweather for warm luxury feel) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com/">
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
-  <link href="./Aslbek AI - Claude Style Multimodal Assistant_files/css2" rel="stylesheet">
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aslbek AI - Ultra Multimodal Assistant</title>
+    <!-- Tailwind CSS va FontAwesome ikonkalari -->
+    <script src="https://tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cloudflare.com">
+    <!-- Silliq va daxshatli animatsiyalar uchun Framer Motion uslubidagi CSS -->
+    <style>
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes pulseGlow { 0%, 100% { box-shadow: 0 0 15px rgba(234, 88, 12, 0.2); } 50% { box-shadow: 0 0 30px rgba(234, 88, 12, 0.6); } }
+        .animate-fade-in { animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        .glow-effect { animation: pulseGlow 3s infinite; }
+        .chat-scroll::-webkit-scrollbar { width: 6px; }
+        .chat-scroll::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 3px; }
+    </style>
+</head>
+<body class="bg-[#191919] text-gray-200 font-sans flex h-screen overflow-hidden">
 
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            claude: {
-              bgLight: '#FBF9F5',
-              cardLight: '#F3EFE6',
-              bgDark: '#1B1917',
-              cardDark: '#262320',
-              sidebarDark: '#141210',
-              accent: '#DA7756', // Claude signature terra cotta
-              accentHover: '#E08F66',
-              accentLight: '#F4E8E1',
-              accentDark: '#3A271E',
-              borderLight: '#E6E1D5',
-              borderDark: '#38332E',
-              textDark: '#E6E1D8',
-              textLight: '#2C2A29',
-              mutedDark: '#A39E93',
-              mutedLight: '#78736A'
-            }
-          },
-          fontFamily: {
-            sans: ['Inter', 'sans-serif'],
-            serif: ['Newsreader', 'Georgia', 'serif'],
-          },
-          keyframes: {
-            popIn: {
-              '0%': { opacity: '0', transform: 'scale(0.95) translateY(10px)' },
-              '100%': { opacity: '1', transform: 'scale(1) translateY(0)' }
-            },
-            shimmer: {
-              '0%': { backgroundPosition: '-200% 0' },
-              '100%': { backgroundPosition: '200% 0' }
-            },
-            pulseSlow: {
-              '0%, 100%': { opacity: '1' },
-              '50%': { opacity: '0.4' }
-            }
-          },
-          animation: {
-            popIn: 'popIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards',
-            shimmer: 'shimmer 2s infinite linear',
-            pulseSlow: 'pulseSlow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite'
-          }
-        }
-      }
-    }
-  </script>
-
-  <style>
-    /* Custom Scrollbar for Claude Aesthetic */
-    ::-webkit-scrollbar {
-      width: 6px;
-      height: 6px;
-    }
-    ::-webkit-scrollbar-track {
-      background: transparent;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: rgba(160, 150, 140, 0.25);
-      border-radius: 9999px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: rgba(160, 150, 140, 0.4);
-    }
-    
-    /* Shimmer gradient overlay for thinking mode */
-    .thinking-shimmer {
-      background: linear-gradient(90deg, rgba(218, 119, 86, 0.1) 0%, rgba(218, 119, 86, 0.35) 50%, rgba(218, 119, 86, 0.1) 100%);
-      background-size: 200% 100%;
-      animation: shimmer 2s infinite linear;
-    }
-
-    /* Soft typography glow */
-    .brand-glow {
-      text-shadow: 0 0 20px rgba(218, 119, 86, 0.25);
-    }
-  </style>
-<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:Inter, sans-serif;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.inset-0{inset:0px}.left-0{left:0px}.top-full{top:100%}.z-20{z-index:20}.z-30{z-index:30}.z-40{z-index:40}.z-50{z-index:50}.mx-auto{margin-left:auto;margin-right:auto}.my-auto{margin-top:auto;margin-bottom:auto}.mb-1{margin-bottom:0.25rem}.mb-2{margin-bottom:0.5rem}.mb-4{margin-bottom:1rem}.mb-8{margin-bottom:2rem}.ml-1{margin-left:0.25rem}.mr-1{margin-right:0.25rem}.mt-0\.5{margin-top:0.125rem}.mt-1{margin-top:0.25rem}.mt-2{margin-top:0.5rem}.ml-2{margin-left:0.5rem}.line-clamp-2{overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2}.block{display:block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.h-screen{height:100vh}.h-16{height:4rem}.h-2{height:0.5rem}.h-8{height:2rem}.h-9{height:2.25rem}.h-full{height:100%}.max-h-40{max-height:10rem}.min-h-\[60vh\]{min-height:60vh}.min-h-\[48px\]{min-height:48px}.w-16{width:4rem}.w-2{width:0.5rem}.w-72{width:18rem}.w-8{width:2rem}.w-9{width:2.25rem}.w-full{width:100%}.max-w-4xl{max-width:56rem}.max-w-md{max-width:28rem}.max-w-xl{max-width:36rem}.flex-1{flex:1 1 0%}.-translate-x-full{--tw-translate-x:-100%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.transform{transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@keyframes popIn{0%{opacity:0;transform:scale(0.95) translateY(10px)}100%{opacity:1;transform:scale(1) translateY(0)}}.animate-popIn{animation:popIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards}@keyframes pulse{50%{opacity:.5}}.animate-pulse{animation:pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite}@keyframes bounce{0%, 100%{transform:translateY(-25%);animation-timing-function:cubic-bezier(0.8,0,1,1)}50%{transform:none;animation-timing-function:cubic-bezier(0,0,0.2,1)}}.animate-bounce{animation:bounce 1s infinite}.resize-none{resize:none}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-end{justify-content:flex-end}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1{gap:0.25rem}.gap-1\.5{gap:0.375rem}.gap-2\.5{gap:0.625rem}.gap-3{gap:0.75rem}.gap-2{gap:0.5rem}.space-y-1 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.25rem * var(--tw-space-y-reverse))}.space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.overflow-y-auto{overflow-y:auto}.truncate{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.rounded{border-radius:0.25rem}.rounded-2xl{border-radius:1rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-xl{border-radius:0.75rem}.border{border-width:1px}.border-2{border-width:2px}.border-b{border-bottom-width:1px}.border-r{border-right-width:1px}.border-t{border-top-width:1px}.border-dashed{border-style:dashed}.border-none{border-style:none}.border-claude-accent\/40{border-color:rgb(218 119 86 / 0.4)}.border-claude-borderLight{--tw-border-opacity:1;border-color:rgb(230 225 213 / var(--tw-border-opacity, 1))}.border-claude-borderLight\/60{border-color:rgb(230 225 213 / 0.6)}.border-transparent{border-color:transparent}.border-claude-accent{--tw-border-opacity:1;border-color:rgb(218 119 86 / var(--tw-border-opacity, 1))}.bg-claude-bgLight{--tw-bg-opacity:1;background-color:rgb(251 249 245 / var(--tw-bg-opacity, 1))}.bg-amber-500\/10{background-color:rgb(245 158 11 / 0.1)}.bg-amber-500\/20{background-color:rgb(245 158 11 / 0.2)}.bg-black\/40{background-color:rgb(0 0 0 / 0.4)}.bg-claude-accent{--tw-bg-opacity:1;background-color:rgb(218 119 86 / var(--tw-bg-opacity, 1))}.bg-claude-accent\/15{background-color:rgb(218 119 86 / 0.15)}.bg-claude-accent\/20{background-color:rgb(218 119 86 / 0.2)}.bg-claude-bgLight\/80{background-color:rgb(251 249 245 / 0.8)}.bg-claude-cardLight{--tw-bg-opacity:1;background-color:rgb(243 239 230 / var(--tw-bg-opacity, 1))}.bg-claude-cardLight\/50{background-color:rgb(243 239 230 / 0.5)}.bg-emerald-500{--tw-bg-opacity:1;background-color:rgb(16 185 129 / var(--tw-bg-opacity, 1))}.bg-purple-500\/10{background-color:rgb(168 85 247 / 0.1)}.bg-purple-500\/20{background-color:rgb(168 85 247 / 0.2)}.bg-rose-500\/10{background-color:rgb(244 63 94 / 0.1)}.bg-rose-500\/20{background-color:rgb(244 63 94 / 0.2)}.bg-sky-500\/10{background-color:rgb(14 165 233 / 0.1)}.bg-sky-500\/20{background-color:rgb(14 165 233 / 0.2)}.bg-claude-accent\/10{background-color:rgb(218 119 86 / 0.1)}.bg-transparent{background-color:transparent}.bg-black\/60{background-color:rgb(0 0 0 / 0.6)}.bg-gradient-to-tr{background-image:linear-gradient(to top right, var(--tw-gradient-stops))}.from-claude-accent{--tw-gradient-from:#DA7756 var(--tw-gradient-from-position);--tw-gradient-to:rgb(218 119 86 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.to-amber-500{--tw-gradient-to:#f59e0b var(--tw-gradient-to-position)}.p-2{padding:0.5rem}.p-2\.5{padding:0.625rem}.p-3{padding:0.75rem}.p-3\.5{padding:0.875rem}.p-4{padding:1rem}.p-6{padding:1.5rem}.px-1\.5{padding-left:0.375rem;padding-right:0.375rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-4{padding-left:1rem;padding-right:1rem}.py-0\.5{padding-top:0.125rem;padding-bottom:0.125rem}.py-1\.5{padding-top:0.375rem;padding-bottom:0.375rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.px-3\.5{padding-left:0.875rem;padding-right:0.875rem}.py-2\.5{padding-top:0.625rem;padding-bottom:0.625rem}.pb-2{padding-bottom:0.5rem}.pt-2{padding-top:0.5rem}.pt-3{padding-top:0.75rem}.text-left{text-align:left}.text-center{text-align:center}.font-sans{font-family:Inter, sans-serif}.font-serif{font-family:Newsreader, Georgia, serif}.font-mono{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-\[10px\]{font-size:10px}.text-\[11px\]{font-size:11px}.text-\[9px\]{font-size:9px}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-bold{font-weight:700}.font-medium{font-weight:500}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.italic{font-style:italic}.leading-tight{line-height:1.25}.tracking-tight{letter-spacing:-0.025em}.tracking-wider{letter-spacing:0.05em}.text-claude-textLight{--tw-text-opacity:1;color:rgb(44 42 41 / var(--tw-text-opacity, 1))}.text-amber-500{--tw-text-opacity:1;color:rgb(245 158 11 / var(--tw-text-opacity, 1))}.text-claude-accent{--tw-text-opacity:1;color:rgb(218 119 86 / var(--tw-text-opacity, 1))}.text-claude-mutedLight{--tw-text-opacity:1;color:rgb(120 115 106 / var(--tw-text-opacity, 1))}.text-emerald-500{--tw-text-opacity:1;color:rgb(16 185 129 / var(--tw-text-opacity, 1))}.text-purple-500{--tw-text-opacity:1;color:rgb(168 85 247 / var(--tw-text-opacity, 1))}.text-rose-500{--tw-text-opacity:1;color:rgb(244 63 94 / var(--tw-text-opacity, 1))}.text-sky-500{--tw-text-opacity:1;color:rgb(14 165 233 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.placeholder-claude-mutedLight::placeholder{--tw-placeholder-opacity:1;color:rgb(120 115 106 / var(--tw-placeholder-opacity, 1))}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-md{--tw-shadow:0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-xl{--tw-shadow:0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-lg{--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.outline-none{outline:2px solid transparent;outline-offset:2px}.backdrop-blur-md{--tw-backdrop-blur:blur(12px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.backdrop-blur-sm{--tw-backdrop-blur:blur(4px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-300{transition-duration:300ms}.ease-in-out{transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1)}.focus-within\:border-claude-accent:focus-within{--tw-border-opacity:1;border-color:rgb(218 119 86 / var(--tw-border-opacity, 1))}.focus-within\:ring-2:focus-within{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)}.focus-within\:ring-claude-accent\/20:focus-within{--tw-ring-color:rgb(218 119 86 / 0.2)}.hover\:border-claude-accent\/30:hover{border-color:rgb(218 119 86 / 0.3)}.hover\:border-claude-accent\/50:hover{border-color:rgb(218 119 86 / 0.5)}.hover\:bg-claude-accent\/5:hover{background-color:rgb(218 119 86 / 0.05)}.hover\:bg-claude-accentHover:hover{--tw-bg-opacity:1;background-color:rgb(224 143 102 / var(--tw-bg-opacity, 1))}.hover\:bg-claude-bgLight:hover{--tw-bg-opacity:1;background-color:rgb(251 249 245 / var(--tw-bg-opacity, 1))}.hover\:bg-claude-cardLight:hover{--tw-bg-opacity:1;background-color:rgb(243 239 230 / var(--tw-bg-opacity, 1))}.hover\:bg-rose-500\/30:hover{background-color:rgb(244 63 94 / 0.3)}.hover\:text-claude-accent:hover{--tw-text-opacity:1;color:rgb(218 119 86 / var(--tw-text-opacity, 1))}.focus\:border-claude-accent:focus{--tw-border-opacity:1;border-color:rgb(218 119 86 / var(--tw-border-opacity, 1))}.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}.focus\:ring-0:focus{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(0px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)}.active\:scale-\[0\.98\]:active{--tw-scale-x:0.98;--tw-scale-y:0.98;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.disabled\:cursor-not-allowed:disabled{cursor:not-allowed}.disabled\:opacity-40:disabled{opacity:0.4}.group:hover .group-hover\:translate-x-0\.5{--tw-translate-x:0.125rem;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.dark\:inline:is(.dark *){display:inline}.dark\:hidden:is(.dark *){display:none}.dark\:border-claude-borderDark:is(.dark *){--tw-border-opacity:1;border-color:rgb(56 51 46 / var(--tw-border-opacity, 1))}.dark\:border-claude-borderDark\/60:is(.dark *){border-color:rgb(56 51 46 / 0.6)}.dark\:bg-claude-bgDark:is(.dark *){--tw-bg-opacity:1;background-color:rgb(27 25 23 / var(--tw-bg-opacity, 1))}.dark\:bg-claude-bgDark\/80:is(.dark *){background-color:rgb(27 25 23 / 0.8)}.dark\:bg-claude-cardDark:is(.dark *){--tw-bg-opacity:1;background-color:rgb(38 35 32 / var(--tw-bg-opacity, 1))}.dark\:bg-claude-cardDark\/50:is(.dark *){background-color:rgb(38 35 32 / 0.5)}.dark\:bg-claude-sidebarDark:is(.dark *){--tw-bg-opacity:1;background-color:rgb(20 18 16 / var(--tw-bg-opacity, 1))}.dark\:text-claude-textDark:is(.dark *){--tw-text-opacity:1;color:rgb(230 225 216 / var(--tw-text-opacity, 1))}.dark\:text-claude-mutedDark:is(.dark *){--tw-text-opacity:1;color:rgb(163 158 147 / var(--tw-text-opacity, 1))}.dark\:text-claude-mutedDark\/60:is(.dark *){color:rgb(163 158 147 / 0.6)}.dark\:placeholder-claude-mutedDark:is(.dark *)::placeholder{--tw-placeholder-opacity:1;color:rgb(163 158 147 / var(--tw-placeholder-opacity, 1))}.dark\:hover\:bg-claude-bgDark:hover:is(.dark *){--tw-bg-opacity:1;background-color:rgb(27 25 23 / var(--tw-bg-opacity, 1))}.dark\:hover\:bg-claude-cardDark:hover:is(.dark *){--tw-bg-opacity:1;background-color:rgb(38 35 32 / var(--tw-bg-opacity, 1))}@media (min-width: 640px){.sm\:inline{display:inline}.sm\:flex{display:flex}.sm\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}}@media (min-width: 768px){.md\:relative{position:relative}.md\:inline{display:inline}.md\:hidden{display:none}.md\:w-80{width:20rem}.md\:translate-x-0{--tw-translate-x:0px;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.md\:p-6{padding:1.5rem}.md\:px-6{padding-left:1.5rem;padding-right:1.5rem}.md\:px-4{padding-left:1rem;padding-right:1rem}.md\:text-3xl{font-size:1.875rem;line-height:2.25rem}.md\:text-base{font-size:1rem;line-height:1.5rem}.md\:shadow-none{--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}}</style></head>
-<body class="bg-claude-bgLight dark:bg-claude-bgDark text-claude-textLight dark:text-claude-textDark font-sans antialiased h-screen flex overflow-hidden transition-colors duration-300">
-
-  <!-- ================= SIDEBAR ================= -->
-  <aside id="sidebar" class="w-72 bg-claude-cardLight dark:bg-claude-sidebarDark border-r border-claude-borderLight dark:border-claude-borderDark flex flex-col h-full absolute md:relative z-40 transform -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out shadow-xl md:shadow-none">
-    
-    <!-- Sidebar Header -->
-    <div class="p-4 flex items-center justify-between border-b border-claude-borderLight/60 dark:border-claude-borderDark/60">
-      <div class="flex items-center gap-3">
-        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-claude-accent to-amber-500 flex items-center justify-center text-white shadow-md font-serif font-bold text-xl">
-          A
-        </div>
+    <!-- 1. Chap menyu (Sidebar) -->
+    <div class="w-64 bg-[#202020] flex flex-col justify-between border-r border-[#2d2d2d] p-4 z-10">
         <div>
-          <h1 class="font-semibold text-base leading-tight tracking-tight">Aslbek AI</h1>
-          <p class="text-xs text-claude-mutedLight dark:text-claude-mutedDark">O'zbekistondagi eng aqlli AI</p>
-        </div>
-      </div>
-      <button id="closeSidebarBtn" class="md:hidden text-claude-mutedLight dark:text-claude-mutedDark hover:text-claude-accent p-2">
-        <i class="fa-solid fa-xmark text-lg"></i>
-      </button>
-    </div>
-
-    <!-- New Chat Button -->
-    <div class="p-3">
-      <button id="newChatBtn" class="w-full flex items-center justify-center gap-2.5 px-4 py-3 bg-claude-accent text-white font-medium rounded-xl hover:bg-claude-accentHover transition-all shadow-md active:scale-[0.98]">
-        <i class="fa-solid fa-plus text-sm"></i>
-        <span>Yangi muloqot</span>
-      </button>
-    </div>
-
-    <!-- Chat History List -->
-    <div class="flex-1 overflow-y-auto px-2 py-2 space-y-1" id="chatHistoryContainer">
-      <div class="px-3 py-1.5 text-xs font-semibold text-claude-mutedLight dark:text-claude-mutedDark uppercase tracking-wider">
-        So'nggi chatlar
-      </div>
-      <!-- History items will be injected here -->
-      <div id="historyList" class="space-y-1"><p class="text-xs text-claude-mutedLight dark:text-claude-mutedDark px-3 py-2 italic">Hozircha chatlar yo'q</p></div>
-    </div>
-
-    <!-- Sidebar Footer / User Info -->
-    <div class="p-3 border-t border-claude-borderLight/60 dark:border-claude-borderDark/60 flex items-center justify-between bg-claude-cardLight/50 dark:bg-claude-cardDark/50">
-      <div class="flex items-center gap-2.5 overflow-hidden">
-        <div class="w-8 h-8 rounded-full bg-claude-accent/20 border border-claude-accent/40 flex items-center justify-center text-claude-accent font-semibold text-xs">
-          UA
-        </div>
-        <div class="truncate">
-          <p class="text-xs font-medium truncate">Foydalanuvchi</p>
-          <span class="inline-flex items-center gap-1 text-[10px] text-amber-500 font-semibold">
-            <i class="fa-solid fa-crown text-[9px]"></i> Extra Plus
-          </span>
-        </div>
-      </div>
-
-      <div class="flex items-center gap-1">
-        <!-- Settings Modal Trigger -->
-        <button id="openSettingsBtn" class="p-2 text-claude-mutedLight dark:text-claude-mutedDark hover:text-claude-accent hover:bg-claude-cardLight dark:hover:bg-claude-cardDark rounded-lg transition-colors" title="Sozlamalar &amp; API Kalit">
-          <i class="fa-solid fa-gear"></i>
-        </button>
-        <!-- Dark/Light Mode Toggle -->
-        <button id="themeToggleBtn" class="p-2 text-claude-mutedLight dark:text-claude-mutedDark hover:text-claude-accent hover:bg-claude-cardLight dark:hover:bg-claude-cardDark rounded-lg transition-colors" title="Mavzuni o'zgartirish">
-          <i class="fa-solid fa-moon dark:hidden"></i>
-          <i class="fa-solid fa-sun hidden dark:inline"></i>
-        </button>
-      </div>
-    </div>
-
-  </aside>
-
-  <!-- Overlay for Mobile Sidebar -->
-  <div id="sidebarOverlay" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-30 hidden md:hidden"></div>
-
-  <!-- ================= MAIN CHAT AREA ================= -->
-  <main class="flex-1 flex flex-col h-full relative overflow-hidden bg-claude-bgLight dark:bg-claude-bgDark">
-    
-    <!-- Top Header & Model Selector -->
-    <header class="h-16 px-4 md:px-6 border-b border-claude-borderLight/60 dark:border-claude-borderDark/60 flex items-center justify-between bg-claude-bgLight/80 dark:bg-claude-bgDark/80 backdrop-blur-md z-20">
-      <div class="flex items-center gap-3">
-        <button id="openSidebarBtn" class="md:hidden p-2 text-claude-mutedLight dark:text-claude-mutedDark hover:text-claude-accent">
-          <i class="fa-solid fa-bars text-lg"></i>
-        </button>
-
-        <!-- Dynamic Model Selector Dropdown -->
-        <div class="relative" id="modelSelectorDropdown">
-          <button id="selectedModelBtn" class="flex items-center gap-2.5 px-3 py-1.5 rounded-xl border border-claude-borderLight dark:border-claude-borderDark bg-claude-cardLight dark:bg-claude-cardDark hover:border-claude-accent/50 transition-all text-sm font-medium">
-            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-            <span id="currentModelLabel" class="font-semibold text-claude-textLight dark:text-claude-textDark">Aslbek AI Extra Pro</span>
-            <span class="text-xs px-1.5 py-0.5 rounded bg-claude-accent/15 text-claude-accent font-semibold">2.5 Pro</span>
-            <i class="fa-solid fa-chevron-down text-xs text-claude-mutedLight dark:text-claude-mutedDark ml-1"></i>
-          </button>
-
-          <!-- Model Menu Options -->
-          <div id="modelMenu" class="hidden absolute top-full left-0 mt-2 w-72 md:w-80 rounded-2xl bg-claude-cardLight dark:bg-claude-cardDark border border-claude-borderLight dark:border-claude-borderDark shadow-2xl p-2 z-50 animate-popIn">
-            <div class="px-3 py-2 text-[11px] font-bold text-claude-mutedLight dark:text-claude-mutedDark uppercase tracking-wider">
-              AI Modelini Tanlang
+            <div class="flex items-center gap-3 mb-6 animate-fade-in">
+                <div class="w-10 h-10 rounded-xl bg-orange-600 flex items-center justify-center font-bold text-white text-xl shadow-lg">A</div>
+                <div>
+                    <h1 class="font-bold text-lg text-white">Aslbek AI</h1>
+                    <p class="text-xs text-gray-400">O'zbekistondagi eng aqlli AI</p>
+                </div>
             </div>
-
-            <!-- Model Item 1 -->
-            <button class="model-option w-full text-left p-2.5 rounded-xl hover:bg-claude-bgLight dark:hover:bg-claude-bgDark transition-colors flex items-start gap-3 border border-transparent hover:border-claude-accent/30 active" data-model="gemini-2.5-pro" data-label="Aslbek AI Extra Pro" data-badge="2.5 Pro">
-              <div class="p-2 rounded-lg bg-amber-500/10 text-amber-500 mt-0.5">
-                <i class="fa-solid fa-bolt-lightning text-sm"></i>
-              </div>
-              <div class="flex-1">
-                <div class="flex items-center justify-between">
-                  <span class="font-semibold text-sm">Aslbek AI Extra Pro</span>
-                  <span class="text-[10px] px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-500 font-bold">Smartest</span>
-                </div>
-                <p class="text-xs text-claude-mutedLight dark:text-claude-mutedDark mt-0.5">Murakkab tahlil, kod va chuqur mantiq uchun mukammal model.</p>
-              </div>
-            </button>
-
-            <!-- Model Item 2 -->
-            <button class="model-option w-full text-left p-2.5 rounded-xl hover:bg-claude-bgLight dark:hover:bg-claude-bgDark transition-colors flex items-start gap-3 border border-transparent hover:border-claude-accent/30 mt-1" data-model="gemini-2.5-flash" data-label="Aslbek AI Standard" data-badge="Flash">
-              <div class="p-2 rounded-lg bg-sky-500/10 text-sky-500 mt-0.5">
-                <i class="fa-solid fa-gauge-high text-sm"></i>
-              </div>
-              <div class="flex-1">
-                <div class="flex items-center justify-between">
-                  <span class="font-semibold text-sm">Aslbek AI Standard</span>
-                  <span class="text-[10px] px-1.5 py-0.5 rounded bg-sky-500/20 text-sky-500 font-bold">Fast</span>
-                </div>
-                <p class="text-xs text-claude-mutedLight dark:text-claude-mutedDark mt-0.5">Tezkor javoblar va kundalik savollar uchun chaqqon AI.</p>
-              </div>
-            </button>
-
-            <!-- Model Item 3 -->
-            <button class="model-option w-full text-left p-2.5 rounded-xl hover:bg-claude-bgLight dark:hover:bg-claude-bgDark transition-colors flex items-start gap-3 border border-transparent hover:border-claude-accent/30 mt-1" data-model="gemini-2.5-thinking" data-label="Aslbek AI Thinking" data-badge="Reasoning">
-              <div class="p-2 rounded-lg bg-purple-500/10 text-purple-500 mt-0.5">
-                <i class="fa-solid fa-brain text-sm"></i>
-              </div>
-              <div class="flex-1">
-                <div class="flex items-center justify-between">
-                  <span class="font-semibold text-sm">Aslbek AI Thinking</span>
-                  <span class="text-[10px] px-1.5 py-0.5 rounded bg-purple-500/20 text-purple-500 font-bold">Deep Logic</span>
-                </div>
-                <p class="text-xs text-claude-mutedLight dark:text-claude-mutedDark mt-0.5">Matematika va murakkab algoritmlarni qadamma-qadam yechadi.</p>
-              </div>
-            </button>
-
-            <!-- Model Item 4 -->
-            <button class="model-option w-full text-left p-2.5 rounded-xl hover:bg-claude-bgLight dark:hover:bg-claude-bgDark transition-colors flex items-start gap-3 border border-transparent hover:border-claude-accent/30 mt-1" data-model="gemini-2.5-ultra" data-label="Aslbek AI Ultra Medium" data-badge="Ultra">
-              <div class="p-2 rounded-lg bg-rose-500/10 text-rose-500 mt-0.5">
-                <i class="fa-solid fa-wand-magic-sparkles text-sm"></i>
-              </div>
-              <div class="flex-1">
-                <div class="flex items-center justify-between">
-                  <span class="font-semibold text-sm">Aslbek AI Ultra Medium</span>
-                  <span class="text-[10px] px-1.5 py-0.5 rounded bg-rose-500/20 text-rose-500 font-bold">Kreativ</span>
-                </div>
-                <p class="text-xs text-claude-mutedLight dark:text-claude-mutedDark mt-0.5">Ijodiy matnlar va badiiy g'oyalar yaratishga moslashtirilgan.</p>
-              </div>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Header Right Indicators -->
-      <div class="flex items-center gap-3">
-        <span class="hidden sm:flex items-center gap-1.5 text-xs text-claude-mutedLight dark:text-claude-mutedDark bg-claude-cardLight dark:bg-claude-cardDark px-3 py-1.5 rounded-full border border-claude-borderLight dark:border-claude-borderDark">
-          <i class="fa-solid fa-shield-halved text-emerald-500"></i> Multimodal AI
-        </span>
-      </div>
-    </header>
-
-    <!-- Scrollable Messages Container -->
-    <div id="messagesContainer" class="flex-1 overflow-y-auto p-4 md:p-6 space-y-6 max-w-4xl w-full mx-auto">
-      
-      <!-- Welcome Hero (Showed when no messages) -->
-      <div id="welcomeHero" class="flex flex-col items-center justify-center min-h-[60vh] text-center my-auto animate-popIn">
-        <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-claude-accent to-amber-500 flex items-center justify-center text-white text-3xl font-serif font-bold shadow-xl mb-4 brand-glow">
-          A
-        </div>
-        <h2 class="text-2xl md:text-3xl font-serif font-medium tracking-tight text-claude-textLight dark:text-claude-textDark mb-2">
-          Assalomu alaykum, men <span class="text-claude-accent font-semibold">Aslbek AI</span>
-        </h2>
-        <p class="text-sm md:text-base text-claude-mutedLight dark:text-claude-mutedDark max-w-md mb-8">
-          Sizga qanday yordam bera olaman? Istalgan savolingizni bering, fayl, PDF yoki rasm biriktiring.
-        </p>
-
-        <!-- Prompt Suggestions / Chips -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full max-w-xl text-left">
-          <button class="suggestion-chip p-3.5 rounded-xl border border-claude-borderLight dark:border-claude-borderDark bg-claude-cardLight dark:bg-claude-cardDark hover:border-claude-accent/50 hover:bg-claude-accent/5 transition-all text-left group">
-            <p class="text-xs font-semibold text-claude-accent mb-1 group-hover:translate-x-0.5 transition-transform">
-              <i class="fa-solid fa-code text-xs mr-1"></i> Dasturlash &amp; Kod
-            </p>
-            <p class="text-xs text-claude-mutedLight dark:text-claude-mutedDark line-clamp-2">React va Tailwind CSS yordamida zamonaviy dashboard yaratishga yordam ber...</p>
-          </button>
-
-          <button class="suggestion-chip p-3.5 rounded-xl border border-claude-borderLight dark:border-claude-borderDark bg-claude-cardLight dark:bg-claude-cardDark hover:border-claude-accent/50 hover:bg-claude-accent/5 transition-all text-left group">
-            <p class="text-xs font-semibold text-claude-accent mb-1 group-hover:translate-x-0.5 transition-transform">
-              <i class="fa-solid fa-file-invoice text-xs mr-1"></i> Fayl &amp; Rasm Tahlili
-            </p>
-            <p class="text-xs text-claude-mutedLight dark:text-claude-mutedDark line-clamp-2">Biriktirilgan rasm yoki hujjatdagi ma'lumotlarni tahlil qilib ber...</p>
-          </button>
-
-          <button class="suggestion-chip p-3.5 rounded-xl border border-claude-borderLight dark:border-claude-borderDark bg-claude-cardLight dark:bg-claude-cardDark hover:border-claude-accent/50 hover:bg-claude-accent/5 transition-all text-left group">
-            <p class="text-xs font-semibold text-claude-accent mb-1 group-hover:translate-x-0.5 transition-transform">
-              <i class="fa-solid fa-pen-nib text-xs mr-1"></i> Badiiy Matn &amp; Insho
-            </p>
-            <p class="text-xs text-claude-mutedLight dark:text-claude-mutedDark line-clamp-2">Texnologiyalarning insoniyat kelajagiga ta'siri haqida insho yoz...</p>
-          </button>
-
-          <button class="suggestion-chip p-3.5 rounded-xl border border-claude-borderLight dark:border-claude-borderDark bg-claude-cardLight dark:bg-claude-cardDark hover:border-claude-accent/50 hover:bg-claude-accent/5 transition-all text-left group">
-            <p class="text-xs font-semibold text-claude-accent mb-1 group-hover:translate-x-0.5 transition-transform">
-              <i class="fa-solid fa-lightbulb text-xs mr-1"></i> Biznes G'oya
-            </p>
-            <p class="text-xs text-claude-mutedLight dark:text-claude-mutedDark line-clamp-2">O'zbekiston bozoriga mos IT va AI yo'nalishidagi 3 ta startap g'oyasi...</p>
-          </button>
-        </div>
-      </div>
-
-      <!-- Messages list will go here dynamically -->
-      <div id="messagesList" class="space-y-6"></div>
-
-    </div>
-
-    <!-- ================= PROMPT & ATTACHMENT BOX (CLAUDE STYLE) ================= -->
-    <div class="p-4 md:p-6 max-w-4xl w-full mx-auto">
-      
-      <!-- Container with Drop Zone -->
-      <div id="dropZone" class="relative rounded-2xl border-2 border-claude-borderLight dark:border-claude-borderDark bg-claude-cardLight dark:bg-claude-cardDark shadow-lg transition-all focus-within:border-claude-accent focus-within:ring-2 focus-within:ring-claude-accent/20">
-        
-        <!-- Drag and Drop Overlay -->
-        <div id="dragOverlay" class="absolute inset-0 bg-claude-accent/10 border-2 border-dashed border-claude-accent rounded-2xl z-30 hidden flex flex-col items-center justify-center backdrop-blur-sm">
-          <i class="fa-solid fa-cloud-arrow-up text-3xl text-claude-accent mb-2 animate-bounce"></i>
-          <p class="text-sm font-semibold text-claude-accent">Faylni shu yerga tashlang</p>
-        </div>
-
-        <!-- Attachment Previews Box (Top of Input Box) -->
-        <div id="attachmentsPreview" class="hidden flex-wrap gap-2.5 p-3 border-b border-claude-borderLight/60 dark:border-claude-borderDark/60">
-          <!-- Dynamically populated attachment cards -->
-        </div>
-
-        <!-- Prompt Textarea -->
-        <div class="px-4 pt-3 pb-2 flex flex-col">
-          <textarea id="userInput" rows="2" placeholder="Aslbek AI ga savol bering yoki biror narsa buyuring..." class="w-full bg-transparent border-none outline-none resize-none text-sm md:text-base text-claude-textLight dark:text-claude-textDark placeholder-claude-mutedLight dark:placeholder-claude-mutedDark max-h-40 min-h-[48px] focus:ring-0"></textarea>
-
-          <!-- Input Action Bar (Attachment Button, Model Info & Send) -->
-          <div class="flex items-center justify-between pt-2">
             
-            <div class="flex items-center gap-1.5">
-              <!-- Hidden File Input -->
-              <input type="file" id="fileInput" class="hidden" multiple="" accept="image/*,.pdf,.txt,.js,.py,.html,.css,.json">
-              
-              <!-- Paperclip / Upload Button -->
-              <button id="uploadBtn" type="button" class="p-2.5 rounded-xl text-claude-mutedLight dark:text-claude-mutedDark hover:text-claude-accent hover:bg-claude-bgLight dark:hover:bg-claude-bgDark transition-all flex items-center gap-1.5 text-xs font-medium" title="Rasm yoki fayl biriktirish">
-                <i class="fa-solid fa-paperclip text-base"></i>
-                <span class="hidden sm:inline">Biriktirish</span>
-              </button>
+            <button onclick="startNewChat()" class="w-full py-3 bg-[#2a2a2a] hover:bg-[#333] border border-[#3d3d3d] rounded-xl font-medium text-sm text-orange-500 transition-all duration-300 flex items-center justify-center gap-2 active:scale-95 mb-6">
+                <i class="fa-solid fa-plus text-xs"></i> Yangi muloqot
+            </button>
 
-              <span class="text-xs text-claude-mutedLight dark:text-claude-mutedDark/60 ml-2 hidden md:inline">
-                Shift + Enter - Yangi qator
-              </span>
+            <div>
+                <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">So'nggi chatlar</p>
+                <div class="text-sm text-gray-400 italic p-2 bg-[#1a1a1a] rounded-lg border border-[#262626]">Hozircha chatlar yo'q</div>
             </div>
+        </div>
 
+        <div class="pt-4 border-t border-[#2d2d2d] flex items-center justify-between text-sm text-gray-400">
             <div class="flex items-center gap-2">
-              <!-- Stop Generation Button (hidden by default) -->
-              <button id="stopBtn" type="button" class="hidden p-2.5 rounded-xl bg-rose-500/20 text-rose-500 hover:bg-rose-500/30 transition-all text-xs font-semibold flex items-center gap-1.5">
-                <i class="fa-solid fa-square text-xs"></i>
-                <span>To'xtatish</span>
-              </button>
-
-              <!-- Send Button -->
-              <button id="sendBtn" type="button" class="p-2.5 md:px-4 rounded-xl bg-claude-accent text-white hover:bg-claude-accentHover disabled:opacity-40 disabled:cursor-not-allowed transition-all shadow-md flex items-center gap-2 text-xs font-semibold">
-                <span>Yuborish</span>
-                <i class="fa-solid fa-arrow-up text-xs"></i>
-              </button>
+                <div class="w-8 h-8 rounded-full bg-gray-600 flex items-center justify-center text-xs font-bold text-white">UA</div>
+                <div>
+                    <p class="text-white font-medium text-xs">Foydalanuvchi</p>
+                    <p class="text-[10px] text-orange-400 font-bold"><i class="fa-solid fa-crown text-[8px]"></i> Extra Plus</p>
+                </div>
             </div>
-
-          </div>
+            <div class="flex gap-3 text-gray-400">
+                <button class="hover:text-white transition-colors"><i class="fa-solid fa-gear"></i></button>
+                <button class="hover:text-white transition-colors"><i class="fa-solid fa-arrow-right-from-bracket"></i></button>
+            </div>
         </div>
-
-      </div>
-
-      <p class="text-[11px] text-center text-claude-mutedLight dark:text-claude-mutedDark mt-2">
-        Aslbek AI adashishi mumkin. Muhim ma'lumotlarni tekshirib ko'ring.
-      </p>
-
     </div>
 
-  </main>
-
-  <!-- ================= SETTINGS / API KEY MODAL ================= -->
-  <div id="settingsModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-    <div class="bg-claude-cardLight dark:bg-claude-cardDark border border-claude-borderLight dark:border-claude-borderDark rounded-2xl max-w-md w-full p-6 shadow-2xl animate-popIn">
-      <div class="flex items-center justify-between mb-4">
-        <h3 class="font-serif font-semibold text-lg flex items-center gap-2">
-          <i class="fa-solid fa-sliders text-claude-accent"></i>
-          Aslbek AI Sozlamalari
-        </h3>
-        <button id="closeSettingsBtn" class="text-claude-mutedLight dark:text-claude-mutedDark hover:text-claude-accent">
-          <i class="fa-solid fa-xmark text-lg"></i>
-        </button>
-      </div>
-
-      <div class="space-y-4">
-        <div>
-          <label class="block text-xs font-semibold uppercase text-claude-mutedLight dark:text-claude-mutedDark mb-1">
-            Gemini API Kalit (Ixtiyoriy)
-          </label>
-          <input type="password" id="customApiKey" placeholder="AIzaSy..." class="w-full px-3.5 py-2.5 rounded-xl border border-claude-borderLight dark:border-claude-borderDark bg-claude-bgLight dark:bg-claude-bgDark text-sm focus:outline-none focus:border-claude-accent">
-          <p class="text-[11px] text-claude-mutedLight dark:text-claude-mutedDark mt-1">
-            O'z Gemini API kalitingizni kiritsangiz bo'ladi. Bo'sh qoldirilsa tizimning standart modelidan foydalaniladi.
-          </p>
-        </div>
-
-        <div>
-          <label class="block text-xs font-semibold uppercase text-claude-mutedLight dark:text-claude-mutedDark mb-1">
-            Tizim Konfiguratsiyasi (System Prompt)
-          </label>
-          <textarea id="systemPromptInput" rows="3" class="w-full px-3.5 py-2.5 rounded-xl border border-claude-borderLight dark:border-claude-borderDark bg-claude-bgLight dark:bg-claude-bgDark text-xs focus:outline-none focus:border-claude-accent font-mono">Isming Aslbek AI. Sen O'zbekistonda yaratilgan eng zamonaviy, muloyim va kuchli sun'iy intellektsan.</textarea>
-        </div>
-
-        <div class="pt-2 flex justify-end gap-2">
-          <button id="saveSettingsBtn" class="px-4 py-2 rounded-xl bg-claude-accent text-white font-medium text-xs hover:bg-claude-accentHover transition-colors">
-            Saqlash
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ================= JAVASCRIPT LOGIC ================= -->
-  <script>
-    // System State
-    const state = {
-      apiKey: localStorage.getItem('aslbek_gemini_key') || '',
-      systemPrompt: localStorage.getItem('aslbek_system_prompt') || "Isming Aslbek AI. Sen O'zbekistonda yaratilgan eng zamonaviy, muloyim va kuchli sun'iy intellektsan.",
-      currentModel: 'gemini-2.5-pro',
-      currentModelLabel: 'Aslbek AI Extra Pro',
-      currentBadge: '2.5 Pro',
-      activeChatId: null,
-      chats: JSON.parse(localStorage.getItem('aslbek_chats') || '[]'),
-      attachments: [], // Holds files uploaded for the current prompt
-      isGenerating: false,
-      abortController: null
-    };
-
-    // DOM Elements
-    const elements = {
-      sidebar: document.getElementById('sidebar'),
-      openSidebarBtn: document.getElementById('openSidebarBtn'),
-      closeSidebarBtn: document.getElementById('closeSidebarBtn'),
-      sidebarOverlay: document.getElementById('sidebarOverlay'),
-      newChatBtn: document.getElementById('newChatBtn'),
-      historyList: document.getElementById('historyList'),
-      
-      modelSelectorDropdown: document.getElementById('modelSelectorDropdown'),
-      selectedModelBtn: document.getElementById('selectedModelBtn'),
-      currentModelLabel: document.getElementById('currentModelLabel'),
-      modelMenu: document.getElementById('modelMenu'),
-      modelOptions: document.querySelectorAll('.model-option'),
-      
-      messagesContainer: document.getElementById('messagesContainer'),
-      welcomeHero: document.getElementById('welcomeHero'),
-      messagesList: document.getElementById('messagesList'),
-      
-      dropZone: document.getElementById('dropZone'),
-      dragOverlay: document.getElementById('dragOverlay'),
-      attachmentsPreview: document.getElementById('attachmentsPreview'),
-      userInput: document.getElementById('userInput'),
-      fileInput: document.getElementById('fileInput'),
-      uploadBtn: document.getElementById('uploadBtn'),
-      sendBtn: document.getElementById('sendBtn'),
-      stopBtn: document.getElementById('stopBtn'),
-      
-      themeToggleBtn: document.getElementById('themeToggleBtn'),
-      openSettingsBtn: document.getElementById('openSettingsBtn'),
-      closeSettingsBtn: document.getElementById('closeSettingsBtn'),
-      settingsModal: document.getElementById('settingsModal'),
-      customApiKey: document.getElementById('customApiKey'),
-      systemPromptInput: document.getElementById('systemPromptInput'),
-      saveSettingsBtn: document.getElementById('saveSettingsBtn')
-    };
-
-    // Initial Setup
-    window.addEventListener('DOMContentLoaded', () => {
-      initTheme();
-      renderChatHistory();
-      setupEventListeners();
-      elements.customApiKey.value = state.apiKey;
-      elements.systemPromptInput.value = state.systemPrompt;
-      
-      // Auto-focus user input
-      elements.userInput.focus();
-    });
-
-    // Theme Manager
-    function initTheme() {
-      const savedTheme = localStorage.getItem('aslbek_theme');
-      if (savedTheme === 'light') {
-        document.documentElement.classList.remove('dark');
-      } else {
-        document.documentElement.classList.add('dark');
-      }
-    }
-
-    elements.themeToggleBtn.addEventListener('click', () => {
-      document.documentElement.classList.toggle('dark');
-      const isDark = document.documentElement.classList.contains('dark');
-      localStorage.setItem('aslbek_theme', isDark ? 'dark' : 'light');
-    });
-
-    // Event Listeners
-    function setupEventListeners() {
-      // Mobile Sidebar
-      elements.openSidebarBtn.addEventListener('click', () => {
-        elements.sidebar.classList.remove('-translate-x-full');
-        elements.sidebarOverlay.classList.remove('hidden');
-      });
-
-      const closeSidebar = () => {
-        elements.sidebar.classList.add('-translate-x-full');
-        elements.sidebarOverlay.classList.add('hidden');
-      };
-      elements.closeSidebarBtn.addEventListener('click', closeSidebar);
-      elements.sidebarOverlay.addEventListener('click', closeSidebar);
-
-      // Model Menu Dropdown
-      elements.selectedModelBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        elements.modelMenu.classList.toggle('hidden');
-      });
-
-      document.addEventListener('click', () => {
-        elements.modelMenu.classList.add('hidden');
-      });
-
-      elements.modelOptions.forEach(option => {
-        option.addEventListener('click', () => {
-          state.currentModel = option.dataset.model;
-          state.currentModelLabel = option.dataset.label;
-          state.currentBadge = option.dataset.badge;
-
-          // Update Button UI
-          elements.currentModelLabel.textContent = state.currentModelLabel;
-          elements.selectedModelBtn.querySelector('.bg-claude-accent, .text-claude-accent').textContent = state.currentBadge;
-
-          elements.modelOptions.forEach(o => o.classList.remove('border-claude-accent/40', 'bg-claude-accent/5'));
-          option.classList.add('border-claude-accent/40', 'bg-claude-accent/5');
-
-          elements.modelMenu.classList.add('hidden');
-        });
-      });
-
-      // Settings Modal
-      elements.openSettingsBtn.addEventListener('click', () => {
-        elements.settingsModal.classList.remove('hidden');
-      });
-      elements.closeSettingsBtn.addEventListener('click', () => {
-        elements.settingsModal.classList.add('hidden');
-      });
-      elements.saveSettingsBtn.addEventListener('click', () => {
-        state.apiKey = elements.customApiKey.value.trim();
-        state.systemPrompt = elements.systemPromptInput.value.trim();
-        localStorage.setItem('aslbek_gemini_key', state.apiKey);
-        localStorage.setItem('aslbek_system_prompt', state.systemPrompt);
-        elements.settingsModal.classList.add('hidden');
-      });
-
-      // Suggestion Chips Click
-      document.querySelectorAll('.suggestion-chip').forEach(chip => {
-        chip.addEventListener('click', () => {
-          const promptText = chip.querySelector('.line-clamp-2').textContent;
-          elements.userInput.value = promptText;
-          autoResizeTextarea();
-          elements.userInput.focus();
-        });
-      });
-
-      // Textarea Auto-resize & Keybindings
-      elements.userInput.addEventListener('input', () => {
-        autoResizeTextarea();
-      });
-
-      elements.userInput.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' && !e.shiftKey) {
-          e.preventDefault();
-          sendMessage();
-        }
-      });
-
-      // File Attachment Handling
-      elements.uploadBtn.addEventListener('click', () => {
-        elements.fileInput.click();
-      });
-
-      elements.fileInput.addEventListener('change', handleFileSelect);
-
-      // Drag and drop zone
-      const dropZone = elements.dropZone;
-      ['dragenter', 'dragover'].forEach(eventName => {
-        dropZone.addEventListener(eventName, (e) => {
-          e.preventDefault();
-          elements.dragOverlay.classList.remove('hidden');
-        }, false);
-      });
-
-      ['dragleave', 'drop'].forEach(eventName => {
-        dropZone.addEventListener(eventName, (e) => {
-          e.preventDefault();
-          elements.dragOverlay.classList.add('hidden');
-        }, false);
-      });
-
-      dropZone.addEventListener('drop', (e) => {
-        const dt = e.dataTransfer;
-        const files = dt.files;
-        handleFiles(files);
-      });
-
-      // Send & Stop Buttons
-      elements.sendBtn.addEventListener('click', sendMessage);
-      elements.newChatBtn.addEventListener('click', startNewChat);
-    }
-
-    function autoResizeTextarea() {
-      const textarea = elements.userInput;
-      textarea.style.height = 'auto';
-      textarea.style.height = Math.min(textarea.scrollHeight, 160) + 'px';
-    }
-
-    // ================= FILE ATTACHMENT SYSTEM =================
-    function handleFileSelect(e) {
-      handleFiles(e.target.files);
-      elements.fileInput.value = ''; // Reset input
-    }
-
-    function handleFiles(files) {
-      Array.from(files).forEach(file => {
-        const reader = new FileReader();
-
-        if (file.type.startsWith('image/')) {
-          reader.onload = (e) => {
-            state.attachments.push({
-              id: Date.now() + Math.random(),
-              type: 'image',
-              name: file.name,
-              size: formatBytes(file.size),
-              mimeType: file.type,
-              dataUrl: e.target.result,
-              base64: e.target.result.split(',')[1]
-            });
-            renderAttachmentsPreview();
-          };
-          reader.readAsDataURL(file);
-        } else {
-          // Document / Text / Code
-          reader.onload = (e) => {
-            state.attachments.push({
-              id: Date.now() + Math.random(),
-              type: 'file',
-              name: file.name,
-              size: formatBytes(file.size),
-              mimeType: file.type || 'text/plain',
-              textContent: e.target.result
-            });
-            renderAttachmentsPreview();
-          };
-          reader.readAsText(file);
-        }
-      });
-    }
-
-    function renderAttachmentsPreview() {
-      const container = elements.attachmentsPreview;
-      if (state.attachments.length === 0) {
-        container.classList.add('hidden');
-        container.innerHTML = '';
-        return;
-      }
-
-      container.classList.remove('hidden');
-      container.innerHTML = '';
-
-      state.attachments.forEach(att => {
-        const card = document.createElement('div');
-        card.className = 'relative flex items-center gap-2.5 p-2 rounded-xl border border-claude-borderLight dark:border-claude-borderDark bg-claude-bgLight dark:bg-claude-bgDark text-xs group animate-popIn';
-
-        if (att.type === 'image') {
-          card.innerHTML = `
-            <img src="${att.dataUrl}" class="w-9 h-9 object-cover rounded-lg border border-claude-borderLight dark:border-claude-borderDark" alt="preview">
-            <div class="max-w-[120px] truncate">
-              <p class="font-medium truncate text-claude-textLight dark:text-claude-textDark">${att.name}</p>
-              <span class="text-[10px] text-claude-mutedLight dark:text-claude-mutedDark">${att.size}</span>
+    <!-- 2. Asosiy Chat oynasi -->
+    <div class="flex-1 flex flex-col justify-between bg-[#191919] relative">
+        
+        <!-- Yuqori panel (Model tanlash va Tillar) -->
+        <div class="h-16 border-b border-[#2d2d2d] px-6 flex items-center justify-between bg-[#191919]/80 backdrop-blur-md z-10">
+            <div class="flex items-center gap-4">
+                <select id="modelSelect" class="bg-[#222] border border-[#3d3d3d] text-sm text-gray-200 rounded-xl px-4 py-2 focus:outline-none focus:border-orange-500 transition-colors cursor-pointer">
+                    <option value="normal">Aslbek AI Standard (Normal)</option>
+                    <option value="medium" selected>Aslbek AI Ultra Kreativ (Medium)</option>
+                    <option value="extra">Aslbek AI Thinking Logic (Extra)</option>
+                    <option value="ultra">Aslbek AI Extra Pro Max (Ultra)</option>
+                </select>
             </div>
-            <button onclick="removeAttachment(${att.id})" class="ml-1 text-claude-mutedLight hover:text-rose-500 p-1">
-              <i class="fa-solid fa-xmark"></i>
-            </button>
-          `;
-        } else {
-          card.innerHTML = `
-            <div class="w-9 h-9 rounded-lg bg-claude-accent/15 flex items-center justify-center text-claude-accent">
-              <i class="fa-solid fa-file-lines text-base"></i>
+
+            <!-- Tillar paneli -->
+            <div class="flex items-center gap-2">
+                <select id="langSelect" class="bg-[#222] border border-[#3d3d3d] text-xs text-gray-300 rounded-lg px-2 py-1.5 focus:outline-none focus:border-orange-500 cursor-pointer">
+                    <option value="uz">🇺🇿 O'zbekcha</option>
+                    <option value="ru">🇷🇺 Русский</option>
+                    <option value="en">🇺🇸 English</option>
+                    <option value="es">🇪🇸 Español</option>
+                    <option value="it">🇮🇹 Italiano</option>
+                    <option value="fr">🇫🇷 Français</option>
+                </select>
+                <div class="text-xs bg-orange-600/10 border border-orange-500/20 text-orange-500 rounded-xl px-3 py-1.5 font-medium flex items-center gap-1">
+                    <i class="fa-solid fa-brain text-[10px]"></i> Multimodal AI
+                </div>
             </div>
-            <div class="max-w-[120px] truncate">
-              <p class="font-medium truncate text-claude-textLight dark:text-claude-textDark">${att.name}</p>
-              <span class="text-[10px] text-claude-mutedLight dark:text-claude-mutedDark">${att.size}</span>
+        </div>
+
+        <!-- Chat xabarlari hududi -->
+        <div id="chatContainer" class="flex-1 overflow-y-auto p-6 space-y-6 chat-scroll flex flex-col justify-center items-center">
+            <!-- Boshlang'ich vizual oyna -->
+            <div id="welcomeScreen" class="max-w-2xl text-center space-y-6 animate-fade-in">
+                <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-orange-600 to-amber-500 flex items-center justify-center font-bold text-white text-3xl mx-auto shadow-2xl glow-effect">A</div>
+                <div class="space-y-2">
+                    <h2 class="text-3xl font-bold text-white tracking-tight">Assalomu alaykum, men <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-400">Aslbek AI</span></h2>
+                    <p class="text-gray-400 text-sm max-w-md mx-auto">Sizga qanday yordam bera olaman? Istalgan savolingizni bering. Men jami 6 ta tilda mukammal javob bera olaman!</p>
+                </div>
+
+                <!-- 4 ta variant kartalari -->
+                <div class="grid grid-cols-2 gap-3 text-left mt-8">
+                    <div onclick="fillInput('Dasturlash va kod yordamida veb-sayt yaratish haqida ma\'lumot ber.')" class="p-4 bg-[#222] hover:bg-[#282828] border border-[#2d2d2d] rounded-xl cursor-pointer transition-all duration-300 hover:-translate-y-1 active:scale-95 group">
+                        <h4 class="text-xs font-semibold text-orange-400 flex items-center gap-1.5 mb-1"><i class="fa-solid fa-code text-[10px]"></i> Dasturlash & Kod</h4>
+                        <p class="text-[11px] text-gray-400 line-clamp-2 group-hover:text-gray-300">Zamonaviy dashboard va dasturlar yozishga yordam...</p>
+                    </div>
+                    <div onclick="fillInput('Rasm yoki fayllarni tahlil qilish tizimi qanday ishlaydi?')" class="p-4 bg-[#222] hover:bg-[#282828] border border-[#2d2d2d] rounded-xl cursor-pointer transition-all duration-300 hover:-translate-y-1 active:scale-95 group">
+                        <h4 class="text-xs font-semibold text-amber-400 flex items-center gap-1.5 mb-1"><i class="fa-solid fa-file-invoice text-[10px]"></i> Fayl & Rasm Tahlili</h4>
+                        <p class="text-[11px] text-gray-400 line-clamp-2 group-hover:text-gray-300">Biriktirilgan hujjatlar va kontentlarni tahlil qilish...</p>
+                    </div>
+                    <div onclick="fillInput('Sun\'iy intellektning kelajagi haqida badiiy insho yozib ber.')" class="p-4 bg-[#222] hover:bg-[#282828] border border-[#2d2d2d] rounded-xl cursor-pointer transition-all duration-300 hover:-translate-y-1 active:scale-95 group">
+                        <h4 class="text-xs font-semibold text-emerald-400 flex items-center gap-1.5 mb-1"><i class="fa-solid fa-pen-nib text-[10px]"></i> Badiiy Matn & Insho</h4>
+                        <p class="text-[11px] text-gray-400 line-clamp-2 group-hover:text-gray-300">Har qaysi tilda ijodiy va badiiy g'oyalar yaratish...</p>
+                    </div>
+                    <div onclick="fillInput('O\'zbekiston bozori uchun 3 ta zo\'r IT startap g\'oyasi ber.')" class="p-4 bg-[#222] hover:bg-[#282828] border border-[#2d2d2d] rounded-xl cursor-pointer transition-all duration-300 hover:-translate-y-1 active:scale-95 group">
+                        <h4 class="text-xs font-semibold text-blue-400 flex items-center gap-1.5 mb-1"><i class="fa-solid fa-lightbulb text-[10px]"></i> Biznes G'oya</h4>
+                        <p class="text-[11px] text-gray-400 line-clamp-2 group-hover:text-gray-300">Mahalliy bozorga mos eng daromadli IT biznes rejalari...</p>
+                    </div>
+                </div>
             </div>
-            <button onclick="removeAttachment(${att.id})" class="ml-1 text-claude-mutedLight hover:text-rose-500 p-1">
-              <i class="fa-solid fa-xmark"></i>
-            </button>
-          `;
-        }
-
-        container.appendChild(card);
-      });
-    }
-
-    window.removeAttachment = function(id) {
-      state.attachments = state.attachments.filter(a => a.id !== id);
-      renderAttachmentsPreview();
-    };
-
-    function formatBytes(bytes) {
-      if (bytes < 1024) return bytes + ' B';
-      if (bytes < 1048576) return (bytes / 1024).toFixed(1) + ' KB';
-      return (bytes / 1048576).toFixed(1) + ' MB';
-    }
-
-    // ================= CHAT & MESSAGE MANAGEMENT =================
-    function startNewChat() {
-      state.activeChatId = null;
-      elements.messagesList.innerHTML = '';
-      elements.welcomeHero.classList.remove('hidden');
-      elements.userInput.value = '';
-      state.attachments = [];
-      renderAttachmentsPreview();
-      autoResizeTextarea();
-      renderChatHistory();
-    }
-
-    function createNewChatObject(firstMessageText) {
-      const chat = {
-        id: 'chat_' + Date.now(),
-        title: firstMessageText.slice(0, 32) + (firstMessageText.length > 32 ? '...' : ''),
-        date: new Date().toISOString(),
-        messages: []
-      };
-      state.chats.unshift(chat);
-      state.activeChatId = chat.id;
-      saveChatsToStorage();
-      renderChatHistory();
-      return chat;
-    }
-
-    function getCurrentChat() {
-      return state.chats.find(c => c.id === state.activeChatId);
-    }
-
-    function saveChatsToStorage() {
-      localStorage.setItem('aslbek_chats', JSON.stringify(state.chats));
-    }
-
-    function renderChatHistory() {
-      const list = elements.historyList;
-      list.innerHTML = '';
-
-      if (state.chats.length === 0) {
-        list.innerHTML = `<p class="text-xs text-claude-mutedLight dark:text-claude-mutedDark px-3 py-2 italic">Hozircha chatlar yo'q</p>`;
-        return;
-      }
-
-      state.chats.forEach(chat => {
-        const item = document.createElement('div');
-        const isActive = chat.id === state.activeChatId;
-        item.className = `group flex items-center justify-between px-3 py-2.5 rounded-xl cursor-pointer text-xs font-medium transition-all ${
-          isActive 
-            ? 'bg-claude-accent/15 text-claude-accent font-semibold' 
-            : 'hover:bg-claude-bgLight dark:hover:bg-claude-cardDark text-claude-textLight dark:text-claude-textDark'
-        }`;
-
-        item.innerHTML = `
-          <div class="flex items-center gap-2 truncate flex-1" onclick="loadChat('${chat.id}')">
-            <i class="fa-regular fa-message text-xs opacity-70"></i>
-            <span class="truncate">${chat.title}</span>
-          </div>
-          <button onclick="deleteChat(event, '${chat.id}')" class="opacity-0 group-hover:opacity-100 p-1 text-claude-mutedLight hover:text-rose-500 transition-opacity">
-            <i class="fa-solid fa-trash-can text-xs"></i>
-          </button>
-        `;
-
-        list.appendChild(item);
-      });
-    }
-
-    window.loadChat = function(chatId) {
-      state.activeChatId = chatId;
-      const chat = getCurrentChat();
-      if (!chat) return;
-
-      elements.welcomeHero.classList.add('hidden');
-      elements.messagesList.innerHTML = '';
-
-      chat.messages.forEach(msg => {
-        renderMessageBubble(msg.role, msg.content, msg.attachments);
-      });
-
-      renderChatHistory();
-    };
-
-    window.deleteChat = function(e, chatId) {
-      e.stopPropagation();
-      state.chats = state.chats.filter(c => c.id !== chatId);
-      if (state.activeChatId === chatId) {
-        startNewChat();
-      } else {
-        saveChatsToStorage();
-        renderChatHistory();
-      }
-    };
-
-    // ================= SEND MESSAGE & GEMINI CALL =================
-    async function sendMessage() {
-      const text = elements.userInput.value.trim();
-      if ((!text && state.attachments.length === 0) || state.isGenerating) return;
-
-      // Ensure active chat
-      if (!state.activeChatId) {
-        createNewChatObject(text || 'Fayl biriktirildi');
-      }
-
-      const chat = getCurrentChat();
-      elements.welcomeHero.classList.add('hidden');
-
-      // User Message Data
-      const currentAttachments = [...state.attachments];
-      const userMessage = {
-        role: 'user',
-        content: text,
-        attachments: currentAttachments
-      };
-
-      // Push to State & Render
-      chat.messages.push(userMessage);
-      renderMessageBubble('user', text, currentAttachments);
-
-      // Reset Inputs
-      elements.userInput.value = '';
-      state.attachments = [];
-      renderAttachmentsPreview();
-      autoResizeTextarea();
-
-      // Lock UI
-      setGeneratingState(true);
-
-      // Render Thinking Indicator Bubble
-      const assistantBubble = renderThinkingBubble();
-
-      try {
-        // Construct Gemini Payload
-        const promptParts = [];
-
-        // Attach text prompt
-        if (text) promptParts.push({ text: text });
-
-        // Process attachments for multimodal input
-        currentAttachments.forEach(att => {
-          if (att.type === 'image') {
-            promptParts.push({
-              inlineData: {
-                mimeType: att.mimeType,
-                data: att.base64
-              }
-            });
-          } else if (att.type === 'file') {
-            promptParts.push({
-              text: `\n[Biriktirilgan fayl: ${att.name}]\n${att.textContent}\n`
-            });
-          }
-        });
-
-        // Call Gemini API via JS
-        const responseText = await callGeminiAPI(promptParts, chat.messages);
-
-        // Update Assistant Bubble with Text
-        updateAssistantBubble(assistantBubble, responseText);
-
-        // Save Response to Chat State
-        chat.messages.push({
-          role: 'model',
-          content: responseText
-        });
-        saveChatsToStorage();
-
-      } catch (error) {
-        console.error('Gemini API Error:', error);
-        updateAssistantBubble(assistantBubble, `**Xatolik yuz berdi:** ${error.message || 'Server bilan bog\'lanishda xatolik. Birozdan so\'ng qayta urinib ko\'ring.'}`, true);
-      } finally {
-        setGeneratingState(false);
-      }
-    }
-
-    // Call Gemini API (Built-in fetch call with fallback and custom key support)
-    async function callGeminiAPI(promptParts, historyMessages) {
-      const apiKey = state.apiKey || ""; // canvas provides fallback in runtime
-      const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
-
-      // Build conversation contents
-      const contents = [];
-
-      // Include previous turns for context
-      historyMessages.slice(0, -1).forEach(m => {
-        contents.push({
-          role: m.role === 'user' ? 'user' : 'model',
-          parts: [{ text: m.content }]
-        });
-      });
-
-      // Add current user prompt with multimodal parts
-      contents.push({
-        role: 'user',
-        parts: promptParts
-      });
-
-      const payload = {
-        contents: contents,
-        systemInstruction: {
-          parts: [{ text: state.systemPrompt }]
-        }
-      };
-
-      const response = await fetch(apiUrl, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      });
-
-      if (!response.ok) {
-        const errorData = await response.json().catch(() => ({}));
-        throw new Error(errorData.error?.message || `HTTP ${response.status} Error`);
-      }
-
-      const result = await response.json();
-      const text = result.candidates?.[0]?.content?.parts?.[0]?.text;
-
-      if (!text) throw new Error("AI javob qaytarmadi.");
-      return text;
-    }
-
-    // ================= RENDER BUBBLES =================
-    function renderMessageBubble(role, content, attachments = []) {
-      const container = document.createElement('div');
-      container.className = `flex flex-col ${role === 'user' ? 'items-end' : 'items-start'} animate-popIn`;
-
-      const isUser = role === 'user';
-
-      let attachmentsHtml = '';
-      if (attachments && attachments.length > 0) {
-        attachmentsHtml = `<div class="flex flex-wrap gap-2 mb-2">`;
-        attachments.forEach(att => {
-          if (att.type === 'image') {
-            attachmentsHtml += `
-              <img src="${att.dataUrl}" class="max-w-[200px] max-h-[160px] rounded-xl border border-claude-borderLight dark:border-claude-borderDark object-cover shadow-sm">
-            `;
-          } else {
-            attachmentsHtml += `
-              <div class="flex items-center gap-2 p-2 rounded-xl border border-claude-borderLight dark:border-claude-borderDark bg-claude-cardLight dark:bg-claude-cardDark text-xs font-medium">
-                <i class="fa-solid fa-file-lines text-claude-accent text-base"></i>
-                <span>${att.name}</span>
-              </div>
-            `;
-          }
-        });
-        attachmentsHtml += `</div>`;
-      }
-
-      container.innerHTML = `
-        <div class="flex items-start gap-3 max-w-[85%] md:max-w-[75%] ${isUser ? 'flex-row-reverse' : 'flex-row'}">
-          
-          <!-- Avatar -->
-          <div class="w-8 h-8 rounded-xl flex items-center justify-center font-bold text-xs shrink-0 shadow-sm ${
-            isUser 
-              ? 'bg-claude-cardLight dark:bg-claude-cardDark border border-claude-borderLight dark:border-claude-borderDark text-claude-textLight dark:text-claude-textDark' 
-              : 'bg-gradient-to-tr from-claude-accent to-amber-500 text-white font-serif'
-          }">
-            ${isUser ? 'Siz' : 'A'}
-          </div>
-
-          <!-- Content Box -->
-          <div class="flex flex-col ${isUser ? 'items-end' : 'items-start'}">
-            ${attachmentsHtml}
-            ${content ? `
-              <div class="px-4 py-3 rounded-2xl text-sm leading-relaxed ${
-                isUser 
-                  ? 'bg-claude-accent text-white rounded-tr-none shadow-md' 
-                  : 'bg-claude-cardLight dark:bg-claude-cardDark border border-claude-borderLight dark:border-claude-borderDark text-claude-textLight dark:text-claude-textDark rounded-tl-none shadow-sm'
-              }">
-                ${formatMarkdownText(content)}
-              </div>
-            ` : ''}
-          </div>
-
         </div>
-      `;
 
-      elements.messagesList.appendChild(container);
-      scrollToBottom();
-      return container;
-    }
-
-    function renderThinkingBubble() {
-      const container = document.createElement('div');
-      container.className = 'flex flex-col items-start animate-popIn';
-
-      container.innerHTML = `
-        <div class="flex items-start gap-3 max-w-[85%] md:max-w-[75%]">
-          <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-claude-accent to-amber-500 text-white font-serif flex items-center justify-center font-bold text-xs shrink-0 shadow-sm">
-            A
-          </div>
-          <div class="px-4 py-3 rounded-2xl rounded-tl-none bg-claude-cardLight dark:bg-claude-cardDark border border-claude-borderLight dark:border-claude-borderDark text-sm flex items-center gap-3">
-            <span class="w-2.5 h-2.5 rounded-full bg-claude-accent animate-ping"></span>
-            <span class="text-xs font-semibold text-claude-mutedLight dark:text-claude-mutedDark">Aslbek AI o'ylamoqda...</span>
-          </div>
-        </div>
-      `;
-
-      elements.messagesList.appendChild(container);
-      scrollToBottom();
-      return container;
-    }
-
-    function updateAssistantBubble(container, text, isError = false) {
-      const contentBox = container.querySelector('.rounded-2xl');
-      if (!contentBox) return;
-
-      contentBox.className = `px-4 py-3 rounded-2xl text-sm leading-relaxed bg-claude-cardLight dark:bg-claude-cardDark border ${
-        isError ? 'border-rose-500/50 text-rose-500' : 'border-claude-borderLight dark:border-claude-borderDark text-claude-textLight dark:text-claude-textDark'
-      } rounded-tl-none shadow-sm`;
-
-      contentBox.innerHTML = formatMarkdownText(text);
-      scrollToBottom();
-    }
-
-    function setGeneratingState(generating) {
-      state.isGenerating = generating;
-      elements.sendBtn.disabled = generating;
-      elements.uploadBtn.disabled = generating;
-      
-      if (generating) {
-        elements.stopBtn.classList.remove('hidden');
-      } else {
-        elements.stopBtn.classList.add('hidden');
-      }
-    }
-
-    function scrollToBottom() {
-      elements.messagesContainer.scrollTo({
-        top: elements.messagesContainer.scrollHeight,
-        behavior: 'smooth'
-      });
-    }
-
-    // Markdown Parser (Supports bold, code, lists, linebreaks)
-    function formatMarkdownText(text) {
-      if (!text) return '';
-
-      let formatted = text
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;');
-
-      // Code blocks ```code```
-      formatted = formatted.replace(/```([\s\S]*?)```/g, (match, p1) => {
-        return `<pre class="my-2 p-3 rounded-xl bg-black/80 text-amber-300 font-mono text-xs overflow-x-auto border border-amber-500/20"><code>${p1.trim()}</code></pre>`;
-      });
-
-      // Inline code `code`
-      formatted = formatted.replace(/`([^`]+)`/g, '<code class="px-1.5 py-0.5 rounded bg-claude-accent/15 text-claude-accent font-mono text-xs">$1</code>');
-
-      // Bold **text**
-      formatted = formatted.replace(/\*\*([^*]+)\*\*/g, '<strong class="font-semibold text-claude-accent">$1</strong>');
-
-      // Italic *text*
-      formatted = formatted.replace(/\*([^*]+)\*/g, '<em>$1</em>');
-
-      // Newlines
-      formatted = formatted.replace(/\n/g, '<br>');
-
-      return formatted;
-    }
-  </script>
-
-</body></html>
+        <!-- Pastki qism: Input paneli -->
+        <div class="p-6 bg-[#191919] border-t border-[#2d2d2d]">
+            <div class="max-w-3xl mx-auto relative bg-[#222] border border-[#333] rounded-2xl p-3 focus-within:border-orange-500/50 transition-colors shadow-xl">
+                <textarea id="userInput" rows="2" class="w-full bg-transparent text-sm text-gray-200 placeholder-gray-500 focus:outline-none resize-none pr-14 pl-2" placeholder="Aslbek AI ga savol bering yoki biror narsa buyuring..."></textarea>
+                
+                <div class="flex items-center justify-between mt-2 pt-2 border-t border-[#2d2d2d] text-xs text-gray-500 px-1">
+                    <div class="flex items-center gap-3">
+                        <button class="hover:text-gray-300 transition-colors flex items-center gap-1 cursor-pointer"><i class="fa-solid fa-paperclip"></i> Biriktirish</button>
+                        <span>Shift + Enter — Yangi qator</span>
+                    </div>
